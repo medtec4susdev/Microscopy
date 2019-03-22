@@ -14,7 +14,7 @@
   <body>
 
     <!-- HEADER -->
-    <div id="header_wrap" class="outer">
+    <div id="header_wrap_1project" class="outer">
         <header class="inner">
           <h1 id="project_title">Microscopy project</h1>
   		  <h3 id="project_tagline"> Microscopy for 3DSlicer - M3DSlicer </h3>
@@ -31,8 +31,39 @@
 		<hr>
   
 		<h2>Microscopy for 3DSlicer</h2>
-        <p> Project description.</p>
-	
+		
+		<p> The work has been developed specifically with histological sections of regenerated skin after injury. These images have been obtained
+		from an optical microscope, and Masson’s trichrome stain has been used. This is a three-colour staining protocol used in histology, suited
+		for distinguishing cells from surrounding connective tissue.
+		This project in its first stage has adapted a segmentation algorithm in a new 3DSlicer module. </p>
+		<p>The framework used consists of the tools: Spyder cross-platform on Windows with WinPython as the main IDE, OpenCV, VTK and ITK libraries,
+		and finally, 3DSlicer –version 4.10.0-, the application to run the adapted algorithms. This application supports python 2.7, and is the version being used.</p>
+		<p><center><img src="images/25.jpg" alt="Mouse tissue." width="400" height="190"></center></p>
+		<p><center>Microscopical image. Histological sections of regenerated skin after injury.</center></p>
+		<p>The segmentation is the process used to simplify or change the representation of an image into another image easier to analyze.
+		It allows the localization of objects and boundaries in the image. With the segmentation process labels are assigned to pixels that
+		in an image share certain characteristics. The result of an image segmentation process is a set of segments that collectively cover the entire image,
+		it could also be a set of contours (contour lines also called isoline, isopleth, or isarithm), extracted from the image.</p> 
+		<p>In a first stage, the method applied is the watershed transformation, where a gray scale image can be seen as a topographic relief, and markers are seen as
+		water sources. The relief is progressively flooded, creating larger and larger lakes. The algorithm supposes that the higher gray level of a pixel is probably
+		the relief that separates two or more regions .The barriers created give the segmentation result. </p>
+		<p>Here are the main steps followed for this segmentation:</p>
+		<ul>
+			<li>Implementation of the threshold segmentation to obtain binary images. </li>
+			<li>Labeled of regions:</li>
+				<ul>
+				<li>Regions which we are sure of being objects (color 1).</li>
+				<li>Regions which we are sure of being background or non-objects (color 2).</li>
+				<li>Regions which we are not sure of anything (label 0).</li>
+				</ul>
+			<li>Implementation of the watershed algorithm.</li>
+			<li>Coloured of the pixels of the image where the marker is equal to -1.</li>
+		</ul>	
+		The watersheds thus obtained correspond to the region of the partition.
+		In a second stage it’s been implemented the thresholding method, based on a clip-level (threshold value), it turns the gray-scale image into a binary one. The key element of this method is the selection of the threshold value for an only level, or values when multiple-levels are selected. These values must be established so that the pixels that are between each pair of limits will form an object. 
+		We use the Otsu method to define the threshold value. This method is based on the selection of a minimum between two modes (peaks), which amount to minimizing intra-class variances.
+		</p>
+
 		<hr>
 
       </section>
