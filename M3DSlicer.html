@@ -46,7 +46,7 @@
 		it could also be a set of contours (contour lines also called isoline, isopleth, or isarithm), extracted from the image.</p> 
 		<p>In a first stage, the method applied is the watershed transformation, where a gray scale image can be seen as a topographic relief, and markers are seen as
 		water sources. The relief is progressively flooded, creating larger and larger lakes. The algorithm supposes that the higher gray level of a pixel is probably
-		the relief that separates two or more regions .The barriers created give the segmentation result. </p>
+		the relief that separates two or more regions. The barriers created give the segmentation result. </p>
 		<p>Here are the main steps followed for this segmentation:</p>
 		<ul>
 			<li>Implementation of the threshold segmentation to obtain binary images. </li>
@@ -59,9 +59,9 @@
 			<li>Implementation of the watershed algorithm.</li>
 			<li>Coloured of the pixels of the image where the marker is equal to -1.</li>
 		</ul>	
-		The watersheds thus obtained correspond to the region of the partition.
-		In a second stage it’s been implemented the thresholding method, based on a clip-level (threshold value), it turns the gray-scale image into a binary one. The key element of this method is the selection of the threshold value for an only level, or values when multiple-levels are selected. These values must be established so that the pixels that are between each pair of limits will form an object. 
-		We use the Otsu method to define the threshold value. This method is based on the selection of a minimum between two modes (peaks), which amount to minimizing intra-class variances.
+		<p>The watershed, thus obtained, corresponds to the region of the partition.</p>
+		<p>In a second stage it’s been implemented the thresholding method, based on a clip-level (threshold value), it turns the gray-scale image into a binary one. The key element of this method is the selection of the threshold value for an only level, or values when multiple-levels are selected. These values must be established so that the pixels that are between each pair of limits will form an object. 
+		The Otsu method has been used to define the threshold value. This method is based on the selection of a minimum between two modes (peaks), which amount to minimizing intra-class variances.</p>
 		</p>
 
 		<hr>
